@@ -31,7 +31,7 @@ describe("a Meteorite", function() {
       expect(meteorite.tellStory()).toMatch(/My name is/);
     });
 
-    it("will tell a coherent story after defeat", function(done) {
+    it("will tell a coherent story after defeat", function() {
     	setTimeout(function(){
 	     	meteorite.defeated = true;
 	     	meteorite.nextMeteorite = new Meteorite({properties: {name: "NEXT", year: "1491-01-01T00:00:00.000", recclass: "Stone-uncl", id: "22614"}, geometry: {coordinates: [12.73333, 50.18333]}});
