@@ -3,7 +3,9 @@ describe("a Game", function() {
   var mapDiv;
   var game, meteorite
 
+
   beforeEach(function(done) {
+    meteorite = new Meteorite({properties: {name: "Rivolta de Bassi", year: "1491-01-01T00:00:00.000", recclass: "Stone-uncl", id: "22614"}, geometry: [12.73333, 50.18333]});
     setTimeout(function() {
       mapDiv = $("<div id='cartodb-map'></div>");
       mapDiv.appendTo('body');
@@ -34,19 +36,12 @@ describe("a Game", function() {
 
 
   describe("extendeds revealed meteorites properly", function(){
-    // beforeEach(function(done) {
-    //   setTimeout(function() {
-    //     game.extendMeteoritesAPI(meteorite);
-    //     done();
-    //   }, 100);
-    // });
-
-    it("adds the next set of meteorites", function() {
-      // setTimeout(function() {
-        // game.extendMeteoritesAPI(meteorite);
+    it("adds the next set of meteorites", function(done) {
+      setTimeout(function() {
+        game.extendMeteoritesAPI(meteorite);
         expect(game.meteorites.length).toEqual(37);
-      //   done();
-      // }, 1000);
+        done();
+      }, 600);
     });
 
   //   it("stops adding meteorites when class is matched", function() {
@@ -64,12 +59,6 @@ describe("a Game", function() {
   //   });
   });
 
-  // describe("sets a meteorites nextMeteorite", function(){
-  //   it("sets a meteorites next meteorite", function() {
-  //     game.setNextMeteorite(meteorite);
-  //     expect(meteorite.nextMeteorite.name).toEqual("Lucé");
-  //   });
-  // });
 
   // describe("has families", function(){
   //   beforeEach(function() {
